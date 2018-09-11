@@ -1,19 +1,25 @@
 # PhoneAuthenticationUsingFirebase
 Hello guys, This tutorial is going to guide on how to integrate phoneAuthentication into your app.
 
-First we need to create the Phone Authentication Activity. I recommend calling this activity from your Registration Activity in form of a textView i.e. Register Using PhoneNumber
- To create the Activity, Navigate to your Project Tab, Right click on app>New>Activity>EmptyActivity
- Choose an Activity Name and click Finish
- Wait for the gradle to sync.
+1.First we need to create the Phone Authentication Activity. I recommend calling this activity from your Registration Activity in form of a textView i.e. Register Using PhoneNumber
+
+To create the Activity, Navigate to your Project Tab, Right click on app>New>Activity>EmptyActivity
+
+Choose an Activity Name and click Finish
+
+Wait for the gradle to sync.
  
  
  Firebase Authentication
  Firebase is a inified platform supported by google. It offers the following features to mobile developers authentication, Analytics, Storage and Database. There are more services and for more information visit their page at https://firebase.google.com/docs/?authuser=0 
  To use Firebase all you need is a gmail account. If you do not already have one, this is a good time to open an account
  
- Search Firebase Console on your search Engine
+ 1.Search Firebase Console on your search Engine
+ 
  It will prompt you to enter your gmail credentials
+ 
  Navigate to Open Add Project and click on it, then Enter Your App Name(Not the Phone Authentication Activity) and nickname then click on Cretae Project
+ 
 ![Add New Project image](../master/myFolder/screenshot14.png) 
 ![Project Created](../master/myFolder/screenshot15.png) 
  On the page that appears click on the add firebase to your app and choose your the Android icon as shown below
