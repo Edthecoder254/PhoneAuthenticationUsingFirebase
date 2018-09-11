@@ -1,7 +1,7 @@
 # PhoneAuthenticationUsingFirebase
 Hello guys, This tutorial is going to guide on how to integrate phoneAuthentication into your app.
 
-1.First we need to create the Phone Authentication Activity. I recommend calling this activity from your Registration Activity in form of a textView i.e. Register Using PhoneNumber
+First we need to create the Phone Authentication Activity. I recommend calling this activity from your Registration Activity in form of a textView i.e. Register Using PhoneNumber
 
 To create the Activity, Navigate to your Project Tab, Right click on app>New>Activity>EmptyActivity
 
@@ -14,18 +14,24 @@ Wait for the gradle to sync.
  Firebase is a inified platform supported by google. It offers the following features to mobile developers authentication, Analytics, Storage and Database. There are more services and for more information visit their page at https://firebase.google.com/docs/?authuser=0 
  To use Firebase all you need is a gmail account. If you do not already have one, this is a good time to open an account
  
- 1.Search Firebase Console on your search Engine
+ Search Firebase Console on your search Engine
  
  It will prompt you to enter your gmail credentials
  
- Navigate to Open Add Project and click on it, then Enter Your App Name(Not the Phone Authentication Activity) and nickname then click on Cretae Project
+ Navigate to Open Add Project and click on it, then Enter Your App Name(Not the Phone Authentication Activity) and nickname then click on Create Project
  
 ![Add New Project image](../master/myFolder/screenshot14.png) 
+
 ![Project Created](../master/myFolder/screenshot15.png) 
- On the page that appears click on the add firebase to your app and choose your the Android icon as shown below
- ![Add Firebase To android](../master/myFolder/screenshot16.png)
- In the next page, Enter your Package name and optionally an app nickame.. It can be found in Android Studio in the Android manifest file
- Important! Ensure You enter the sha certificate number as it is crucial for the app to function
+
+On the page that appears click on the add firebase to your app and choose your the Android icon as shown below
+
+![Add Firebase To android](../master/myFolder/screenshot16.png)
+
+In the next page, Enter your Package name and optionally an app nickame.. It can be found in Android Studio in the Android manifest file
+
+Important! Ensure You enter the sha-1 certificate number as it is crucial for the app to function
+
 /*SHA generation
 In android studio navigate to the gradle tab(far right), then click on the appname(root) dropdown and finally on the android drop down arrow
 Next Click on the signing report and wait for the sha certificate to be generated.
@@ -36,8 +42,11 @@ Copy and paste the sha1 number in the firebase window
 Finally click on create App
 
 Next download the google-Json file and paste it into the studio project files in the android app module root directory
+
 Click Next
+
 Next copy the classpath and dependencies and paste them in your app.Do not forget to add the google-services plugin
+
 click Next and click on the skip this step option 
 
 /*Implementation and classpath
@@ -45,21 +54,31 @@ Copy this into your gradle build.gradle(project) file
  dependencies{
 classpath 'com.google.gms:google-services:4.0.1'
 }
- ![classpath](../master/myFolder/screenshot20.png)
+
+![classpath](../master/myFolder/screenshot20.png)
+
+
 Now Copy this into your build.gradle(app) file
+
 dependencies{
  implementation 'com.google.firebase:firebase-auth:16.0.3'
   implementation 'com.google.firebase:firebase-auth:16.0.3'
  }
+
 // Add this at the bottom 
+
 apply plugin: 'com.google.gms.google-services'
- ![Dependencies](../master/myFolder/screenshot22.png)
+
+
+![Dependencies](../master/myFolder/screenshot22.png)
+
 Finally sync your project!
 */
+
 Now that your app is set up and ready to go, go back to the firebase console and naviagte to the authentication tab>Sign in method>Phone Authentication and click Enable and finally click Save.
 
 
-Code
+Source Code
 This is the code that will enable phone Authentication in your app
 PhoneAuthProvider.getInstance().verifyPhoneNumber(
         phoneNumber,        // Phone number to verify
@@ -69,8 +88,9 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
         mCallbacks);        // OnVerificationStateChangedCallbacks
         
         
-        Below is the layput file for my main Activity 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        Below is the Layout Resource file for my main Activity
+        
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -79,7 +99,7 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
     tools:context=".MainActivity">
 
 
-    <ImageView
+   <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,15 +108,14 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_launcher_background" />
 
-    <LinearLayout
+   <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:orientation="vertical"
         android:padding="15dp">
-
-        <EditText
+      <EditText
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,23 +123,20 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
             android:ems="10"
             android:hint="Enter phone"
             android:inputType="phone" />
-
-        <Button
+    <Button
             android:id="@+id/buttonGetVerificationCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Get Verification Code"
             android:textAllCaps="false" />
-
-        <EditText
+     <EditText
             android:id="@+id/editTextCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:hint="Enter code received"
             android:inputType="number" />
-
-        <Button
+      <Button
             android:id="@+id/buttonSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,6 +148,8 @@ PhoneAuthProvider.getInstance().verifyPhoneNumber(
 Below is the full code for Phoen Authentication using Firebase
 
 
+
+package com.marvedie.phoneauth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -249,7 +267,7 @@ public class PhoneAuthentication extends AppCompatActivity  {
         @Override
         public void onVerificationFailed(FirebaseException e) {
 
-            //Toast.makeText(getApplicationContext(), "Something Failed, Ensure You have Internet Connectivity and Try Again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Something Failed, Ensure You have Internet Connectivity and Try Again", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -263,5 +281,7 @@ public class PhoneAuthentication extends AppCompatActivity  {
 
 
 }
-
-
+ 
+ 
+ Now Build your project and procees to test it
+ 
