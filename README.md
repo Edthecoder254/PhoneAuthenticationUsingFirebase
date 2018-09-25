@@ -20,13 +20,13 @@ Wait for the gradle to sync.
  
  Navigate to Open Add Project and click on it, then Enter Your App Name(Not the Phone Authentication Activity) and nickname then click on Create Project
  
-![Add New Project image](../master/myFolder/screenshot14.png) 
+![Add New Project image](../master/phoneAuth/myFolder/screenshot14.png) 
 
-![Project Created](../master/myFolder/screenshot15.png) 
+![Project Created](../master/phoneAuth/myFolder/screenshot15.png) 
 
 On the page that appears click on the add firebase to your app and choose your the Android icon as shown below
 
-![Add Firebase To android](../master/myFolder/screenshot16.png)
+![Add Firebase To android](../master/phoneAuth/myFolder/screenshot16.png)
 
 In the next page, Enter your Package name and optionally an app nickame.. It can be found in Android Studio in the Android manifest file
 
@@ -36,7 +36,7 @@ Important! Ensure You enter the sha-1 certificate number as it is crucial for th
 In android studio navigate to the gradle tab(far right), then click on the appname(root) dropdown and finally on the android drop down arrow
 Next Click on the signing report and wait for the sha certificate to be generated.
 Copy and paste the sha1 number in the firebase window
- ![ssh](../master/myFolder/screenshot21.png)
+ ![ssh](../master/phoneAuth/myFolder/screenshot21.png)
 */
 
 Finally click on create App
@@ -70,7 +70,7 @@ dependencies{
 apply plugin: 'com.google.gms.google-services'
 
 
-![Dependencies](../master/myFolder/screenshot22.png)
+![Dependencies](../master/phoneAuth/myFolder/screenshot22.png)
 
 Finally sync your project!
 */
